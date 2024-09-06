@@ -1,0 +1,44 @@
+{% extends 'instructor/instructor_sidebar.html' %}
+{% block title %}Settings | Instructly{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">My Profile</h2>
+    <!-- Conditional Links -->
+    {% if profile %}
+        <a href="{% url 'user_settings' %}" class="btn btn-primary">Update Profile</a>
+    {% else %}
+        <a href="{% url 'create_user_profile' %}" class="btn btn-primary">Create Profile</a>
+    {% endif %}
+    
+    <div class="row mt-2">
+        <!-- User Information -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">User Information</h5>
+                    <p><strong>Username:</strong> {{ user.username }}</p>
+                    <p><strong>Email:</strong> {{ user.email }}</p>
+                    <p><strong>First Name:</strong> {{ user.first_name }}</p>
+                    <p><strong>Last Name:</strong> {{ user.last_name }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Profile Information -->
+        <div class="col-md-6 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Profile Information</h5>
+                    {% if profile.profile_picture.url %}
+                        <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="img-fluid mb-2">
+                    {% else %}
+                        <p>No profile picture available</p>
+                    {% endif %}
+                    <p><strong>Bio:</strong> {{ profile.bio|default:"No bio available" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'student/student_base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4 text-center">Welcome back, {{ user.username }}!</h2>
+
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-md-12 text-center">
+            <img src="{% static 'img/learning.jpg' %}" alt="Learning Hero Image" class="img-fluid rounded mb-4" style="max-height: 400px;">
+            <h3>Empower Your Learning Journey</h3>
+            <p>Discover new skills, track your progress, and achieve your goals with our curated resources.</p>
+        </div>
+    </div>
+
+    <!-- Featured Sections -->
+    <div class="row">
+        <!-- Quizzes Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <img src="{% static 'img/quizzes.jpg' %}" alt="Quizzes" class="card-img-top" style="max-height: 300px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Interactive Quizzes</h5>
+                    <p class="card-text">Test your knowledge and see how much you've learned with our engaging quizzes.</p>
+                    <a href="" class="btn btn-primary">Start a Quiz</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card shadow-sm">
+                <img src="{% static 'img/onlineresource.jpg' %}" alt="Resources" class="card-img-top" style="max-height: 300px; object-fit: cover;">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Learning Resources</h5>
+                    <p class="card-text">Explore a variety of articles, videos, and guides to enhance your understanding.</p>
+                    <a href="{% url 'student_resources' %}" class="btn btn-primary">Browse Resources</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="row text-center">
+        <div class="col-md-12">
+            <h4>Ready to Learn Something New?</h4>
+            <p>Jump back in and continue where you left off or discover new topics today.</p>
+            <a href="{% url 'student_resources' %}" class="btn btn-success">Get Started</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'instructor/instructor_sidebar.html' %}
+
+{% block title %} Help & Support | Instructly {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Help & Support</h2>
+
+    <!-- Getting Started Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Getting Started</h5>
+            <p class="card-text">
+                Welcome to Instructly! As an instructor, you can manage your resources and update your profile. Start by familiarizing yourself with the platform through our tutorials and guides.
+            </p>
+        </div>
+    </div>
+
+    <!-- Managing Your Profile Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Managing Your Profile</h5>
+            <p class="card-text">
+                Keep your profile up to date to ensure that students have the correct information about you. You can update your bio, profile picture, and contact details anytime through the "Settings" page.
+            </p>
+            <a href="{% url 'user_settings' %}" class="btn btn-primary">Update Your Profile</a>
+        </div>
+    </div>
+
+    <!-- Sharing Resources Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Sharing Resources</h5>
+            <p class="card-text">
+                Instructly allows you to share valuable resources such as documents, images, and links with your students. Use the "Add New Resource" button in the Resources section to upload and manage your materials.
+            </p>
+            <a href="{% url 'resource_create' %}" class="btn btn-primary">Add a New Resource</a>
+        </div>
+    </div>
+
+    <!-- FAQ Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Frequently Asked Questions (FAQ)</h5>
+            <p class="card-text">
+                Have questions? Our FAQ section covers the most common queries instructors have about using Instructly. From account management to resource sharing, find the answers you need here.
+            </p>
+            <a href="{% url 'help_center' %}" target="_blank" class="btn btn-secondary">Visit FAQ</a>
+        </div>
+    </div>
+
+    <!-- Contact Support Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Contact Support</h5>
+            <p class="card-text">
+                Need further assistance? Our support team is here to help. Whether you're facing technical issues or have questions about the platform, don't hesitate to reach out to us.
+                You can also use the form below.
+            </p>
+            <a href="mailto:mumiaktechnologies@gmail.com" class="btn btn-secondary">Contact Support</a>
+        </div>
+    </div>
+
+
+
+    <!-- Report an Issue/Feedback Card -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title text-center">Report an Issue or Provide Feedback</h5>
+            <p class="card-text">
+                If you encounter any issues or have feedback to improve the platform, please fill out the form below. Your input is valuable in helping us enhance the Instructly experience.
+            </p>
+
+            <!-- Report Form -->
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name (optional)</label>
+                    <input type="text" name="name" class="form-control" id="name">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email (optional)</label>
+                    <input type="email" name="email" class="form-control" id="email">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="subject" class="form-label">Subject</label>
+                    <select name="subject" class="form-select" id="subject">
+                        <option value="Bug Report">Bug Report</option>
+                        <option value="Feature Request">Feature Request</option>
+                        <option value="General Feedback">General Feedback</option>
+                    </select>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" class="form-control" id="description" rows="5" placeholder="Describe the issue or feedback..."></textarea>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="screenshot" class="form-label">Screenshot (optional)</label>
+                    <input type="file" name="screenshot" class="form-control" id="screenshot">
+                </div>
+                
+                <div class="mb-3">
+                    <label for="priority" class="form-label">Priority Level</label>
+                    <select name="priority" class="form-select" id="priority">
+                        <option value="Low">Low</option>
+                        <option value="Medium">Medium</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

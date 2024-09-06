@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Join Us | Instructly{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Join Us</h2>
+        <p class="text-center mb-4">
+            At Instructly, we are always looking for passionate individuals to join our community. Whether you're interested in 
+            becoming a student, an instructor, or a collaborator, there are numerous ways to get involved and contribute to 
+            our mission of enhancing education.
+        </p>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Become a Student</h4>
+                        <p class="card-text">
+                            If you’re eager to learn and grow with us, consider joining as a student. Access our rich educational 
+                            resources and connect with knowledgeable instructors to enhance your skills.
+                        </p>
+                        <a href="{% url 'register' %}" class="btn btn-primary">Register as Student</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Become an Instructor</h4>
+                        <p class="card-text">
+                            Share your expertise and passion by joining us as an instructor. Inspire and educate students while 
+                            contributing to a vibrant learning community.
+                        </p>
+                        <a href="{% url 'register' %}" class="btn btn-primary">Register as Instructor</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <h4 class="card-title">Collaborators & Contributors</h4>
+                        <p class="card-text">
+                            We welcome talented individuals who are interested in collaborating or contributing to our platform. 
+                            Whether you're a developer, designer, or have other skills to offer, we’d love to hear from you.
+                        </p>
+                        <p>
+                            Please email us at <a href="mailto:mumiaktechnologies@gmail.com">mumiaktechnologies@gmail.com</a> 
+                            to discuss potential opportunities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="text-center mt-4">
+            <a href="{% url 'register' %}" class="btn btn-primary">Join Our Community</a>
+        </div>
+        <br><br>
+        -->
+    </div>
+{% endblock %}

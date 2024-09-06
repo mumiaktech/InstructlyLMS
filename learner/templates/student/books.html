@@ -1,0 +1,50 @@
+{% extends 'student/student_base.html' %}
+{% block title %}Books | Instructly{% endblock %}
+
+{% block content %}
+
+<div class="container mt-5">
+    <h1 class="text-center">Search for Books</h1>
+
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'search_books' %}" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search resources..." value="{{ query }}">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+    <hr>
+
+    <!-- Display Search Results -->
+    {% if books %}
+    <h2>Search Results</h2>
+    <div class="row">
+        {% for book in books %}
+        <div class="col-md-4">
+            <div class="card mb-4" style="height: 400px;">  <!-- Set fixed height for card -->
+                {% if book.volumeInfo.imageLinks and book.volumeInfo.imageLinks.thumbnail %}
+                <img src="{{ book.volumeInfo.imageLinks.thumbnail }}" class="card-img-top" alt="Book Cover" style="height: 150px; object-fit: cover;"> <!-- Fixed image height -->
+                {% endif %}
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ book.volumeInfo.title }}</h5>
+                    <p class="card-text" style="flex-grow: 1; overflow: hidden; max-height: 80px;"> <!-- Limit the height of the description -->
+                        {{ book.volumeInfo.description|truncatewords:30 }}
+                    </p>
+                    <a href="{{ book.volumeInfo.previewLink }}" class="btn btn-primary mt-auto" target="_blank">Preview</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    {% if query %}
+    <p>No results found for "{{ query }}".</p>
+    {% else %}
+    <p>Enter a search term to find books.</p>
+    {% endif %}
+    {% endif %}
+
+</div>
+
+{% endblock %}

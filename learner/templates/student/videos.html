@@ -1,0 +1,34 @@
+{% extends 'student/student_base.html' %}
+{% block title %}Videos | Instructly{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-2">Search for Videos</h1>
+    
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'search_videos' %}" class="mb-4">
+        <div class="input-group">
+            <input type="text" name="q" class="form-control" placeholder="Search resources..." value="{{ query }}">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+    
+    <hr>
+    
+    <!-- Video Results -->
+    <div class="row">
+        {% for video in videos %}
+        <div class="col-md-3 col-sm-6">
+            <div class="card mb-4">
+                <img class="card-img-top" src="{{ video.snippet.thumbnails.high.url }}" alt="{{ video.snippet.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ video.snippet.title }}</h5>
+                    <p class="card-text">{{ video.snippet.description|truncatewords:20 }}</p>
+                    <a href="https://www.youtube.com/watch?v={{ video.id.videoId }}" target="_blank" class="btn btn-primary">Watch Video</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

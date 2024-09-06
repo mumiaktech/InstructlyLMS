@@ -1,0 +1,30 @@
+{% extends 'instructor/instructor_sidebar.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 text-center">{% if form.instance.pk %}Edit{% else %}Add{% endif %} Resource</h2>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.title.label_tag }} {{ form.title }}
+                {{ form.resource_type.label_tag }} {{ form.resource_type }}
+                {{ form.cost_type.label_tag }} {{ form.cost_type }}
+                {{ form.description.label_tag }} {{ form.description }}
+
+                <p class="mt-4">You can share an address or file, only one will be displayed</p>
+
+                {{ form.url.label_tag }} {{ form.url }}
+                {{ form.file.label_tag }} {{ form.file }}
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-3">Save</button>
+                    <a href="{% url 'resource_list' %}" class="btn btn-secondary mt-3 ms-2">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
