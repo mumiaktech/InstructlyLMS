@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .models import Resource, UserProfile, Report
 from django.contrib.auth.forms import PasswordChangeForm
 
+#Resource form
 class ResourceForm(forms.ModelForm):
     class Meta:
         model = Resource
@@ -16,11 +17,13 @@ class ResourceForm(forms.ModelForm):
             'file': forms.ClearableFileInput(attrs={'class': 'form-control'}),
         }
 
+#User Details creation and updation form
 class UserUpdateForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name']  
 
+#User profile form
 class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
@@ -30,6 +33,7 @@ class UserProfileForm(forms.ModelForm):
             'profile_picture': forms.ClearableFileInput(attrs={'class': 'form-control'})
         }
 
+#Password reset form
 class PasswordResetForm(PasswordChangeForm):
     class Meta:
         model = User
@@ -59,6 +63,7 @@ class PasswordResetForm(PasswordChangeForm):
         self.fields['new_password1'].widget.attrs.update({'class': 'form-control'})
         self.fields['new_password2'].widget.attrs.update({'class': 'form-control'})
 
+#help report submission form
 class ReportForm(forms.ModelForm):
     class Meta:
         model = Report

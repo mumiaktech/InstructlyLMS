@@ -1,6 +1,7 @@
 from django import forms
 from .models import Quiz, Question, Answer
 
+#quiz form
 class QuizForm(forms.ModelForm):
     class Meta:
         model = Quiz
@@ -11,6 +12,7 @@ class QuizForm(forms.ModelForm):
             'time_limit': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter time limit in minutes'}),
         }
 
+#question form
 class QuestionForm(forms.ModelForm):
     class Meta:
         model = Question
@@ -19,6 +21,7 @@ class QuestionForm(forms.ModelForm):
             'text': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter question text'}),
         }
 
+#answer form
 class AnswerForm(forms.ModelForm):
     class Meta:
         model = Answer

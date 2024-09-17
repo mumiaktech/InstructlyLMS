@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
-
+#custome user profile form
 class CustomUserProfile(UserCreationForm):
     role = forms.ChoiceField(choices=[('Admin', 'Admin'), ('Instructor', 'Instructor'), ('Student', 'Student')])
 

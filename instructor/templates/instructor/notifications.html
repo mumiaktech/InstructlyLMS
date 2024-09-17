@@ -1,14 +1,17 @@
+<!--notifications template-->
 {% extends 'instructor/instructor_sidebar.html' %}
 
 {% block content %}
 <div class="container mt-5">
     <h2 class="text-center">Your Notifications</h2>
     <ul class="list-group">
+        <!--Displays existing notification-->
         {% for notification in notifications %}
             <li class="list-group-item {% if not notification.is_read %}list-group-item-success{% endif %}">
                 {{ notification.message }}
                 <span class="text-muted float-end">{{ notification.created_at }}</span>
             </li>
+        <!--works if there are no existing notifications-->
         {% empty %}
             <li class="list-group-item">No notifications available.</li>
         {% endfor %}

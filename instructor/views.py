@@ -7,7 +7,7 @@ from django.db.models import Q
 from django.contrib.auth import update_session_auth_hash
 
 
-
+#instructor dashboard
 @login_required
 def instructor_dashboard(request):
     # Count unread notifications
@@ -17,6 +17,7 @@ def instructor_dashboard(request):
         'notifications_count': notifications_count,
     })
 
+#resources views
 @login_required
 def resource_list(request):
     query = request.GET.get('q', '')
@@ -76,6 +77,7 @@ def resource_delete(request, pk):
     
     return render(request, 'instructor/resource_confirm_delete.html', {'resource': resource})
 
+#user settings view
 @login_required
 def user_settings(request):
     try:
@@ -129,6 +131,7 @@ def create_user_profile(request):
         'form': form
     })
 
+#password view
 @login_required
 def reset_password(request):
     if request.method == 'POST':
@@ -142,6 +145,7 @@ def reset_password(request):
     
     return render(request, 'instructor/reset_password.html', {'form': form})
 
+#support view
 def instructor_support(request):
     if request.method == 'POST':
         form = ReportForm(request.POST, request.FILES)
@@ -154,12 +158,15 @@ def instructor_support(request):
     
     return render(request, 'instructor/help_support.html', {'form': form})
 
+#activity view
 @login_required
 def recent_activity(request):
     # Fetch recent activities for the logged-in user
     activities = Activity.objects.filter(user=request.user).order_by('-date')[:5]
     return render(request, 'instructor/recent_activity.html', {'activities': activities})
 
+#notification view
+@login_required
 def notifications(request):
     user_notifications = Notification.objects.filter(user=request.user).order_by('-created_at')
     user_notifications.update(is_read=True)

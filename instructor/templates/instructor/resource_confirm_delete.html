@@ -1,3 +1,4 @@
+<!--Resource deletion template-->
 {% extends 'instructor/instructor_sidebar.html' %}
 
 {% block content %}
@@ -8,6 +9,7 @@
             <div class="mb-4">
                 <p class="h5">{{ resource.title }}</p>
             </div>
+            <!--form-->
             <form method="post">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-danger btn-lg">Yes, Delete</button>

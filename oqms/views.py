@@ -84,6 +84,7 @@ def instructor_quiz_list(request):
     else:
         return redirect('home')
 
+# View for instructors to add questions to quizzes
 @login_required
 def add_questions(request, quiz_id):
     if request.user.groups.filter(name='Instructor').exists():

@@ -8,10 +8,12 @@ import environ
 # Initialize environment variables
 env = environ.Env()
 
+#home view
 @login_required
 def student_home(request):
     return render(request, 'student/student_home.html')
 
+#resurces view
 @login_required
 def student_resources(request):
     query = request.GET.get('q')
@@ -26,6 +28,7 @@ def student_resources(request):
     }
     return render(request, 'student/student_resources.html', context) 
 
+#news view
 @login_required
 def news_view(request):
     api_key = env('NEWS_API_KEY')  # Use environment variable
@@ -47,8 +50,9 @@ def news_view(request):
 
     return render(request, 'student/news.html', context)
 
+#books view
 @login_required
-def search_books_view(request):
+def books_view(request):
     query = request.GET.get('q', 'linux')  
     api_key = env('GOOGLE_API_KEY')  # Use environment variable  
     books = []
@@ -70,8 +74,9 @@ def search_books_view(request):
     
     return render(request, 'student/books.html', context)
 
+#videos view
 @login_required
-def search_videos_view(request):
+def videos_view(request):
     api_key = env('GOOGLE_API_KEY')  # Use environment variable  
     query = request.GET.get('q', 'educational')  
     

@@ -1,3 +1,4 @@
+<!--Form for updating user profiles-->
 {% extends 'instructor/instructor_sidebar.html' %}
 {% block title %}Create Profile | Instructly{% endblock %}
 
@@ -8,15 +9,19 @@
 
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        <!--user bio field-->
         <div class="mb-3">
             <label for="id_bio" class="form-label">Bio</label>
             {{ form.bio }}
         </div>
+
+        <!--User profile picture field-->
         <div class="mb-3">
             <label for="id_profile_picture" class="form-label">Profile Picture</label>
             {{ form.profile_picture }}
         </div>
         
+        <!--Button for saving the information-->
         <div class="text-center">
             <button type="submit" class="btn btn-primary">Save Changes</button>
         </div>
