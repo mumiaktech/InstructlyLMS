@@ -1,55 +1,56 @@
-# Instructly - Online Quiz Management System (OQMS)
+# Instructly
 
 Instructly is an online platform designed to facilitate learning by providing instructors and students with tools to share resources, create and take quizzes, and track progress. The system allows for a seamless, interactive educational experience for both instructors and students.
 
 ## Table of Contents
 
-- [Project Name](#project-name)
-- [Introduction](#introduction)
+- [Inspiration and Background](#inspiration-and-background)
+- [Technical Challenges and Solutions](#technical-challenges-and-solutions)
 - [Installation](#installation)
 - [Usage](#usage)
   - [Instructor Dashboard](#instructor-dashboard)
   - [Student Dashboard](#student-dashboard)
   - [Create Superuser & Admin Roles](#create-superuser--admin-roles)
-- [Screenshot](#screenshot)
+- [Screenshots](#screenshots)
 - [Testing](#testing)
+- [Future Enhancements](#future-enhancements)
 - [Contributing](#contributing)
 - [Licensing](#licensing)
 
-## Project Name
+## Inspiration and Background
 
-***Instructly***
+The idea behind **Instructly** was born out of my curiosity about how Learning Management Systems (LMS) are built. I wanted to create something that didn’t require courses to be built from scratch but allowed for resources and content to be pulled from external sources. As an instructor, you can easily share educational content you find useful, and students can access those resources to enhance their learning.
 
-## Introduction
+Throughout this project, I aimed to create a tool that makes learning more accessible and interactive. My goal was to provide an intuitive platform where instructors could manage resources and quizzes effortlessly, and students could easily engage with the material and test their knowledge with quick quizzes.
 
-Instructly is an all-in-one learning platform that enables instructors to create quizzes and manage educational resources while allowing students to participate in quizzes and access these resources. This platform promotes both individual and collaborative learning.
+In developing **Instructly**, I learned a lot about the nuances of managing user roles, permissions, and building real-time functionalities such as notifications and instant quiz feedback.
 
-### Live Site
+## Technical Challenges and Solutions
 
-[Instructly - Live Site](https://codepen.io/mumiakmitch/full/qBzLwdJ)
+Building this project presented several technical challenges:
 
-### Final Project Blog
+- **Resource Management**: Initially, I struggled with designing a system where instructors could upload various types of learning materials. I resolved this by utilizing Django's built-in file handling capabilities, which allowed for seamless uploads of PDFs, videos, and documents.
+  
+- **Quiz System**: Designing a flexible quiz system was a major focus. I created multiple models to handle different types of questions, and I integrated automatic grading so that students receive real-time feedback. Django's ORM was particularly useful in managing the complexity of storing, retrieving, and evaluating quiz data.
 
-[Blog Article](#)
+- **Real-time Notifications**: One of the more difficult parts of the project was implementing real-time notifications. This required integrating Django Channels with WebSockets, allowing instructors to receive updates on student activities instantly. After several iterations, I successfully built a reliable notification system.
 
-### Author
-
-[LinkedIn](https://www.linkedin.com/in/mitchel-mugono/)
+- **Student and Instructor Dashboards**: The design challenge was to make both dashboards simple but feature-rich. For instructors, the ability to manage quizzes and resources in one place was key. For students, the dashboard had to be clean and intuitive to encourage them to engage with learning materials without feeling overwhelmed.
 
 ## Installation
 
 To get started with Instructly, follow these steps:
 
-1. Clone the repository:
+1.Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/instructly.git
+git clone https://github.com/mumiak-mitch/InstructlyLMS
 ```
 
 2.Navigate into the project directory:
 
 ```bash
-cd instructly
+cd InstructlyLMS
 ```
 
 3.Install the necessary dependencies:
@@ -82,17 +83,18 @@ python manage.py runserver
 
 Instructors can:
 
-- Create and manage educational resources.
-- Design quizzes with questions and automatic grading.
-- Track student activity, quiz scores, and submissions.
-- Receive real-time notifications.
+- Share educational resources like videos, documents, and links.
+- Create and manage quizzes with automatic grading.
+- Track student performance through real-time notifications and activity logs.
+- Manage the resources they’ve shared (edit/delete).
 
 ### Student Dashboard
 
 Students can:
 
-- Access learning resources such as documents and videos.
+- Access and search educational resources shared by instructors.
 - Participate in quizzes and receive instant feedback on their performance.
+- Explore additional resources such as news articles, books, and tutorials pulled from external APIs (e.g., YouTube API for video tutorials, Books API for educational content).
 
 ### Create Superuser & Admin Roles
 
@@ -110,7 +112,9 @@ Students can:
    - **Instructor**: Assign permissions to create quizzes, manage resources, and track student activity.
    - **Student**: Assign permissions to access learning resources and take quizzes.
 
-## Screenshot
+## Screenshots
+
+Here are some screenshots of the platform in action:
 
 ![Login](login.png)
 ![Register](register.png)
@@ -146,6 +150,18 @@ Then, run E2E tests:
 ```bash
 python manage.py test --tag=selenium
 ```
+
+## Future Enhancements
+
+Although **Instructly** offers a full-featured learning platform, there are several features I plan to introduce in future iterations:
+
+- **Advanced Analytics**: Developing more comprehensive analytics tools to track learning trends and student performance over time.
+- **Mobile App**: Building a dedicated mobile app for better accessibility and user experience on mobile devices.
+- **More API Integrations**: Expanding the platform to integrate additional educational resources from various APIs (e.g., eBooks, webinars).
+
+## Personal Growth
+
+This project has been a huge learning experience for me, both in terms of technical skills and project management. I deepened my understanding of Django, user roles, and permission handling. The process of integrating external APIs was particularly challenging but also rewarding, as it opened up new ways to enhance the user experience. I'm excited about the next steps and how **Instructly** will evolve over time.
 
 ## Contributing
 
