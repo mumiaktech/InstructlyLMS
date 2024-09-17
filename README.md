@@ -1,30 +1,80 @@
-# Instructly
+# Instructly - Online Quiz Management System (OQMS)
 
-**Instructly** is a comprehensive online learning platform designed to help users upskill and grow in their careers. The platform offers a wide range of educational resources, quizzes, and interactive features to enhance the learning experience for both students and instructors.
+Instructly is an online platform designed to facilitate learning by providing instructors and students with tools to share resources, create and take quizzes, and track progress. The system allows for a seamless, interactive educational experience for both instructors and students.
 
 ## Table of Contents
 
-- [Features](#features)
+- [Project Name](#project-name)
+- [Introduction](#introduction)
+- [Installation](#installation)
 - [Usage](#usage)
   - [Instructor Dashboard](#instructor-dashboard)
   - [Student Dashboard](#student-dashboard)
-  - [Quizzes and Resources](#quizzes-and-resources)
+  - [Create Superuser & Admin Roles](#create-superuser--admin-roles)
+- [Screenshot](#screenshot)
 - [Testing](#testing)
-  - [Unit Tests](#unit-tests)
-  - [Integration Tests](#integration-tests)
-  - [End-to-End (E2E) Tests](#end-to-end-e2e-tests)
 - [Contributing](#contributing)
+- [Licensing](#licensing)
 
-## Features
+## Project Name
 
-- **User Roles**: Separate roles for Instructors and Students, each with specific features.
-- **Instructor Dashboard**: Manage resources, quizzes, view notifications, and track activity.
-- **Student Dashboard**: Access quizzes, learning resources, profile settings, and view recent activity.
-- **Quizzes**: Create, edit, and take quizzes with automatic scoring.
-- **Resources**: Share and manage educational resources like documents, videos, and links.
-- **Notifications**: Receive real-time notifications for important updates.
-- **Reports and Support**: Submit reports and receive support from instructors.
-- **Responsive Design**: Optimized for various devices using Bootstrap.
+***Instructly***
+
+## Introduction
+
+Instructly is an all-in-one learning platform that enables instructors to create quizzes and manage educational resources while allowing students to participate in quizzes and access these resources. This platform promotes both individual and collaborative learning.
+
+### Live Site
+
+[Instructly - Live Site](https://codepen.io/mumiakmitch/full/qBzLwdJ)
+
+### Final Project Blog
+
+[Blog Article](#)
+
+### Author
+
+[LinkedIn](https://www.linkedin.com/in/mitchel-mugono/)
+
+## Installation
+
+To get started with Instructly, follow these steps:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/instructly.git
+```
+
+2.Navigate into the project directory:
+
+```bash
+cd instructly
+```
+
+3.Install the necessary dependencies:
+
+```bash
+pipenv install
+```
+
+4.Apply the migrations:
+
+```bash
+python manage.py migrate
+```
+
+5.Create a superuser for the admin panel:
+
+```bash
+python manage.py createsuperuser
+```
+
+6.Start the development server:
+
+```bash
+python manage.py runserver
+```
 
 ## Usage
 
@@ -32,71 +82,81 @@
 
 Instructors can:
 
-- **Create and Manage Resources**: Upload documents, videos, course materials, and other learning content.
-- **Create Quizzes**: Design quizzes with multiple questions and answers, including correct/incorrect answer tracking.
-- **Track Student Activity**: View student progress, quiz scores, and submission reports.
-- **Receive Notifications**: Get notified about new student activities, reports, and important updates.
+- Create and manage educational resources.
+- Design quizzes with questions and automatic grading.
+- Track student activity, quiz scores, and submissions.
+- Receive real-time notifications.
 
 ### Student Dashboard
 
 Students can:
 
-- **Access Learning Resources**: Browse and view shared educational resources in various formats (videos, documents, interactive content).
-- **Take Quizzes**: Participate in quizzes, view instant feedback and scores.
+- Access learning resources such as documents and videos.
+- Participate in quizzes and receive instant feedback on their performance.
 
-### Quizzes and Resources
+### Create Superuser & Admin Roles
 
-- **Quiz Management**: Instructors can create quizzes. Students can take quizzes and view their scores immediately after submission.
-- **Resource Management**: Instructors upload, categorize, and manage resources, which are easily accessible by students. Resources can include different formats, such as documents, videos, and interactive tools.
+1. **Create a Superuser**  
+   Run the following command to create a superuser for the Django admin:
+
+   ```bash
+   python manage.py createsuperuser
+   ```
+
+   Use the superuser account to log in to the Django admin dashboard.
+
+2. **Create Roles: Instructor and Student**  
+   In the admin dashboard, create roles with appropriate permissions:
+   - **Instructor**: Assign permissions to create quizzes, manage resources, and track student activity.
+   - **Student**: Assign permissions to access learning resources and take quizzes.
+
+## Screenshot
+
+![Login](login.png)
+![Register](register.png)
+![Instructor Dashboard](instructor.png)
+![Learner Dashboard](learner.png)
 
 ## Testing
 
-Instructly includes a full testing suite with unit tests, integration tests, and end-to-end tests to ensure the platform’s reliability and functionality.
+Instructly includes a comprehensive testing suite with unit, integration, and end-to-end (E2E) tests to ensure platform reliability.
 
-### Unit Tests
-
-Unit tests are available for all core models, including `Resource`, `UserProfile`, `Report`, `Quiz`, `Question`, and others. These tests ensure that individual components and model behaviors work as expected.
-
-To run unit tests, use:
+### Running Unit Tests
 
 ```bash
 python manage.py test
 ```
 
-### Integration Tests
-
-Integration tests ensure that different parts of the system work together. This includes testing how quizzes interact with questions, how resources are accessed by students, and how instructors manage content and notifications.
-
-To run integration tests, use:
+### Running Integration Tests
 
 ```bash
 python manage.py test
 ```
 
-### End-to-End (E2E) Tests
+### Running E2E Tests with Selenium
 
-We use **Selenium** for E2E tests, simulating user interactions across the entire platform (e.g., logging in, creating quizzes, taking quizzes). These tests ensure that the entire flow works as expected from the user’s perspective.
-
-To run end-to-end tests, ensure you have the necessary browser drivers (like **Chromedriver** for Chrome or **Geckodriver** for Firefox) installed, then run:
-
-```bash
-python manage.py test --tag=selenium
-```
-
-Make sure you have Selenium installed:
+Ensure you have Selenium installed:
 
 ```bash
 pip install selenium
 ```
 
+Then, run E2E tests:
+
+```bash
+python manage.py test --tag=selenium
+```
+
 ## Contributing
 
-We welcome contributions to Instructly! If you would like to contribute, please follow these steps:
+We welcome contributions! Here's how you can get involved:
 
 1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes and commit them (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
+2. Create a new branch for your feature or bugfix: `git checkout -b your-branch-name`.
+3. Commit your changes: `git commit -m 'Add new feature'`.
+4. Push to your branch: `git push origin your-branch-name`.
 5. Create a pull request.
 
-Please ensure your code adheres to the existing code style and includes relevant tests.
+## Licensing
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.

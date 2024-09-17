@@ -1,5 +1,0 @@
-Create super user
-Login to admin account
-Create the roles Instructor and Student with relevant permissions
-
-OQMS (Online Quiz Management System)
