@@ -1,0 +1,30 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
+venv/
+env/
+
+# Ignore environment variables file
+.env
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore database files
+db.sqlite3
+
+# Ignore logs
+*.log
+
+# Ignore static and media files (optional)
+staticfiles/
+media/
+
+# Ignore VSCode settings (optional)
+.vscode/
+
+#Personal files
+setup.txt
+steps.txt
