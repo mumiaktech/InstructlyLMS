@@ -5,6 +5,7 @@ __pycache__/
 # Ignore virtual environment
 venv/
 env/
+.env
 
 # Ignore environment variables file
 .env
@@ -18,11 +19,12 @@ db.sqlite3
 # Ignore logs
 *.log
 
-# Ignore static and media files (optional)
+# Ignore static and media files
 staticfiles/
 media/
+static
 
-# Ignore VSCode settings (optional)
+# Ignore VSCode settings
 .vscode/
 
 #Personal files
