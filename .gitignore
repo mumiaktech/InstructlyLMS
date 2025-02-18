@@ -22,7 +22,8 @@ db.sqlite3
 # Ignore static and media files
 staticfiles/
 media/
-static
+static/css
+static/js
 
 # Ignore VSCode settings
 .vscode/
