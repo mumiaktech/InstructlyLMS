@@ -1,0 +1,8 @@
+/*navbar toggle functionality*/
+.active-link {
+    color: green !important;
+    /* Change text color */
+    font-weight: bold;
+    /* Make it bold */
+    border-bottom: 2px solid green;
+}
