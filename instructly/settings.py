@@ -103,16 +103,22 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-STATIC_URL = 'static/'
+#Static Files
+# URL for serving static files
+STATIC_URL = '/static/'
 
-# Directory where static files will be collected
+# Directory where `collectstatic` will gather all static files (for production)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  
 
-# Additional directories to look for static files (useful for custom CSS/JS)
+# Additional locations for Django to look for static files during development
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+
+
+#Media Files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Folder to store uploaded files
 
 
 # Default primary key field type

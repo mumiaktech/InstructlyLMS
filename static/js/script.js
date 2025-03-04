@@ -1,9 +1,9 @@
-//Navigation toggle code
+// Ensure the script runs only after the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", function () {
-    // Get the current URL path
-    let currentUrl = window.location.pathname;
+    console.log("Script loaded!");
 
-    // Get all navigation links
+    // Highlight active navigation link
+    let currentUrl = window.location.pathname;
     let navLinks = document.querySelectorAll("nav a");
 
     navLinks.forEach(link => {
@@ -11,10 +11,23 @@ document.addEventListener("DOMContentLoaded", function () {
             link.classList.add("active-link"); // Add highlight class
         }
     });
+
+    // Help & Support Search Bar
+    const searchInput = document.getElementById('faqSearch');
+    if (searchInput) { // Ensure element exists
+        searchInput.addEventListener('input', function () {
+            let searchText = this.value.toLowerCase();
+            let faqs = document.querySelectorAll('.faq-item');
+
+            faqs.forEach(faq => {
+                let question = faq.querySelector('h2').textContent.toLowerCase();
+                faq.style.display = question.includes(searchText) ? 'block' : 'none';
+            });
+        });
+    }
 });
 
-
-//FAQ toggle code
+// Move this function outside so it's globally accessible
 function toggleFaq(button) {
     const answer = button.nextElementSibling;
     const icon = button.querySelector('span');

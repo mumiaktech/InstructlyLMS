@@ -1,0 +1,44 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Help - Instructly{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold text-center text-gray-900 mb-6 mt-5">Help & Support</h1>
+
+    <!-- Search Bar -->
+    <div class="mb-8 flex justify-center">
+        <input type="text" id="faqSearch" placeholder="Search for help..."
+            class="w-full max-w-lg px-4 py-2 border rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none">
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faqContainer" class="space-y-6">
+        <div class="faq-item border border-gray-300 rounded-lg p-4">
+            <h2 class="text-xl font-semibold text-gray-800">How do I enroll in a course?</h2>
+            <p class="mt-2">You can enroll by navigating to the course page and clicking the "Enroll Now" button.</p>
+        </div>
+        <div class="faq-item border border-gray-300 rounded-lg p-4">
+            <h2 class="text-xl font-semibold text-gray-800">Are the courses really free?</h2>
+            <p class="mt-2">Yes! All our courses are available for free to help you learn without any barriers.</p>
+        </div>
+        <div class="faq-item border border-gray-300 rounded-lg p-4">
+            <h2 class="text-xl font-semibold text-gray-800">How can I contact support?</h2>
+            <p class="mt-2">You can reach out to our support team by emailing
+                <a href="mailto:mumiaktechnologies@gmail.com"
+                    class="text-green-600 hover:underline">mumiaktechnologies@gmail.com</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Support Button -->
+    <div class="mt-8 text-center">
+        <a href="mailto:mumiaktechnologies@gmail.com"
+            class="px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 transition">
+            Contact Support
+        </a>
+    </div>
+</div>
+
+{% endblock %}
